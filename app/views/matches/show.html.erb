@@ -1,0 +1,14 @@
+<div class="container">
+    <%= turbo_stream_from @match %>
+    <turbo-frame id="turn-tracker">
+         <%= render partial: "turn-tracker", locals: {match: @match} %>
+    </turbo-frame>
+
+    <div class="game-board" id="<%= dom_id(@match) %>">
+    <% if @match.winner != nil %>
+        <%= render partial: "winning-board", locals: {match: @match } %>
+    <% else %>
+        <%= render @match %>
+    <% end %>
+    </div>
+</div>

@@ -1,0 +1,5 @@
+<% if @match.winner == nil %>
+    <h4> It's currently player <%= @match.current_player %> turn</h4>
+<% else %>
+    <h4> Player <%= @match.winner %> has won the game!</h4>
+<% end %>

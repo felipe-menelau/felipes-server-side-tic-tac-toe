@@ -1,0 +1,22 @@
+.row {
+  display: flex;
+  width: 300px;
+  height: 100px;
+}
+
+.cell {
+  flex-grow: 1;
+  border: 1px solid lightgrey;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.empty-cell {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  margin-left: 16.65px;
+  margin-right: 16.65px;
+}
