@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-ruby "3.3.3"
+ruby "3.3.2"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.1.3", ">= 7.1.3.4"
@@ -71,3 +71,11 @@ gem "pg", "~> 1.5"
 gem "byebug", "~> 11.1"
 
 gem "material_design_lite-sass", "~> 1.3"
+
+gem "dockerfile-rails", ">= 1.6", :group => :development
+
+gem "net-protocol", "~> 0.2.2"
+
+gem "aws-sdk-s3", "~> 1.152", :require => false
+
+gem "hotwire-debug", "~> 0.1.5"

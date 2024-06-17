@@ -1,13 +1,13 @@
-<% 3.times do |row| %>
-  <div class="row">
-    <% 3.times do |col| %>
-      <span class="cell">
-        <% if match.get_cell(row, col) != "" %>
-          <%= image_tag("player_#{match.get_cell(row, col).downcase}.png") %>
-        <% else %>
-          <%= button_to image_tag("player_#{match.current_player.downcase}"), match_moves_path(match), params: { row: row, col: col }, method: :post %>
-        <% end %>
-      </span>
+<div>
+  <%= render partial: "matches/turn-tracker", locals: {match: match} %>
+
+  <div class="game-board">
+    <% if match.winner != nil %>
+      <%= render partial: "matches/winning-board", locals: {match: match } %>
+    <% elsif match.winner == "T" %>
+      <%= render partial: "matches/tie-board", locals: {match: match } %>
+    <% else %>
+      <%= render partial: "matches/board", locals: {match: match } %>
     <% end %>
   </div>
-<% end %>
+</div>

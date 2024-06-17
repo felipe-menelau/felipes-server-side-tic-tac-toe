@@ -12,11 +12,12 @@
   align-items: center;
 }
 
-.empty-cell {
-  display: flex;
-  justify-content: center;
-  margin-top: 50px;
-  margin-bottom: 50px;
-  margin-left: 16.65px;
-  margin-right: 16.65px;
+.newgame {
+    margin-top: 20px;
+    align-content: center;
+}
+
+.newgame_container {
+    display: flex;
+    justify-content: center;
 }

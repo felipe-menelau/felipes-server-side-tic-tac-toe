@@ -1,6 +1,18 @@
 <div class="container">
-    <form action="/matches" method="post">
-        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-        <input class="mdl-button mdl-js-button mdl-button--raised" type="submit" value="New Game">
-    </form>
+    <div class="title-box">
+    </div>
+    <div class="new-game-box">
+        <div class="options">
+            <form action="/matches" method="post">
+                <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+                <input class="mdl-button mdl-js-button mdl-button--raised" type="submit" value="New Game">
+            </form>
+        </div>
+        <div class="options">
+            <form action="/stats" method="get">
+                <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+                <input class="mdl-button mdl-js-button mdl-button--raised" type="submit" value="Stats">
+            </form>
+        </div>
+    </div>
 </div>

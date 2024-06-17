@@ -15,3 +15,10 @@ test:
   pool: 5
   user: postgres
   password: password
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  host: postgres://postgres:rLxmyXYtMwEl8d2@ttt-db.flycast:5432
+  database: ttt_db
+  pool: 5
