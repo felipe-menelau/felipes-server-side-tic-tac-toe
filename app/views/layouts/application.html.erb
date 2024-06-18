@@ -7,6 +7,9 @@
       <span class="mdl-layout-title">Server Side Tic Tac Toe</span>
       <!-- Add spacer, to align navigation to the right -->
       <div class="mdl-layout-spacer"></div>
+      <a class="mdl-navigation__link" href="<%= root_path %>">Home</a>
+      <a class="mdl-navigation__link" href="<%= stats_path(format: :json) %>">Stats (For nerds)</a>
+      <a class="mdl-navigation__link" href="<%= matches_random_path %>">See a random match</a>
     </div>
   </header>
   <head>
@@ -23,6 +26,8 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div class="mega-box">
+      <%= yield %>
+    </div>
   </body>
 </html>

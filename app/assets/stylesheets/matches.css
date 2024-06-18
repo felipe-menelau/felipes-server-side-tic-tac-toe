@@ -21,3 +21,11 @@
     display: flex;
     justify-content: center;
 }
+
+.mega-box {
+    background-color: rgba(211, 211, 211, 0.822);
+    border: lightgray 1px solid;
+    display: flex;
+    flex-flow: column;
+    height: 100%;
+}

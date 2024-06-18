@@ -1,5 +1,8 @@
 <div class="container">
     <div class="title-box">
+        <turbo_frame class="cat">
+           <%= image_tag("gato-#{@cat_seed}.png") %>
+        </turbo_frame>
     </div>
     <div class="new-game-box">
         <div class="options">
@@ -9,10 +12,7 @@
             </form>
         </div>
         <div class="options">
-            <form action="/stats" method="get">
-                <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-                <input class="mdl-button mdl-js-button mdl-button--raised" type="submit" value="Stats">
-            </form>
+            <%= button_to "Refresh Cat Picture", matches_cat_path, method: :get, class: "mdl-button mdl-js-button mdl-button--raised"%>
         </div>
     </div>
 </div>

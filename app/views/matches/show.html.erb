@@ -12,7 +12,11 @@
             </form>
         </div>
         <div class="sharelink_container">
-            <h6>Send this link to your friend to play async multiplayer: <%= request. original_url %></h6>
+            <% if @match.winner == nil %>
+                <h6>Send this link to your friend to play async multiplayer: <%= request. original_url %></h6>
+            <% else %>
+                <h6> Could you have won this...? </h6>
+            <% end %>
         </div>
     </div>
 </div>

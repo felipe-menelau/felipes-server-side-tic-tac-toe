@@ -1,4 +1,6 @@
 class MatchesController < ApplicationController
+  before_action :refresh_cat_seed, only: [:index]
+
   def index
     @matches = Match.all
   end
@@ -9,6 +11,11 @@ class MatchesController < ApplicationController
     respond_to do |format|
       format.html
     end
+  end
+
+  def random
+    @match = Match.where.not(winner: nil).order("RANDOM()").first
+    redirect_to @match
   end
 
   def create
@@ -28,7 +35,23 @@ class MatchesController < ApplicationController
     end
   end
 
+  def cat
+    refresh_cat_seed
+    respond_to do |format|
+      format.turbo_stream
+      format.html {
+        redirect_to action: "index"
+      }
+    end
+  end
+
   def new_game
     redirect_to action: "create"
+  end
+
+  private
+
+  def refresh_cat_seed
+    @cat_seed = rand(1..6)
   end
 end

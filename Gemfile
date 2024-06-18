@@ -79,3 +79,9 @@ gem "net-protocol", "~> 0.2.2"
 gem "aws-sdk-s3", "~> 1.152", :require => false
 
 gem "hotwire-debug", "~> 0.1.5"
+
+gem "rspec-rails", "~> 6.1"
+
+gem "rails-controller-testing", "~> 1.0"
+
+gem "factory_bot_rails", "~> 6.4"

@@ -1,6 +1,6 @@
 class Match < ApplicationRecord
   validates :current_player, presence: true
-  validates :current_player, inclusion: { in: %(A, B, WA, WB), message: "%{value} is not a valid player" }
+  validates :current_player, inclusion: { in: %(A, B), message: "%{value} is not a valid player" }
   after_update_commit { broadcast_update_to :match_update, target: ApplicationController.helpers.dom_id(self), partial: "matches/match", locals: { match: self } }
 
   attribute_list = [:current_player, :game_matrix, :winner]
@@ -73,8 +73,8 @@ class Match < ApplicationRecord
   end
 
   def move!(coordinate_x, coordinate_y)
-    return "GAME OVER" unless self.winner == nil
-    return "INVALID MOVE" if self.game_matrix[coordinate_x][coordinate_y] != ""
+    return error_with_message("GAME OVER") unless self.winner == nil
+    return error_with_message("INVALID MOVE") if self.game_matrix[coordinate_x][coordinate_y] != ""
     self.game_matrix[coordinate_x][coordinate_y] = self.current_player
     if check_winner
       self.save!
@@ -88,5 +88,11 @@ class Match < ApplicationRecord
 
     swap_player
     self.save!
+  end
+
+  def error_with_message(message)
+    Rails.logger.warn("Match error: #{message}, match_id: #{self.id}, match: #{self.inspect}")
+
+    return message
   end
 end
