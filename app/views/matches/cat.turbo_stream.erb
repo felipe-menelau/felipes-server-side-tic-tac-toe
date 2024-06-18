@@ -1,0 +1,5 @@
+<%= turbo_stream.update "cat" do %>
+    <turbo_frame class="cat">
+        <%= image_tag("gato-#{@cat_seed}.png") %>
+    </turbo_frame>
+<% end %>

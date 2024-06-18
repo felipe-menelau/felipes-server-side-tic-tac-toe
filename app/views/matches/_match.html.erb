@@ -1,0 +1,13 @@
+<div>
+  <%= render partial: "matches/turn-tracker", locals: {match: match} %>
+
+  <div class="game-board">
+    <% if match.winner != nil %>
+      <%= render partial: "matches/winning-board", locals: {match: match } %>
+    <% elsif match.winner == "T" %>
+      <%= render partial: "matches/tie-board", locals: {match: match } %>
+    <% else %>
+      <%= render partial: "matches/board", locals: {match: match } %>
+    <% end %>
+  </div>
+</div>

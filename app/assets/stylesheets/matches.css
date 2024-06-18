@@ -1,0 +1,31 @@
+.row {
+  display: flex;
+  width: 300px;
+  height: 100px;
+}
+
+.cell {
+  flex-grow: 1;
+  border: 1px solid lightgrey;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.newgame {
+    margin-top: 20px;
+    align-content: center;
+}
+
+.newgame_container {
+    display: flex;
+    justify-content: center;
+}
+
+.mega-box {
+    background-color: rgba(211, 211, 211, 0.822);
+    border: lightgray 1px solid;
+    display: flex;
+    flex-flow: column;
+    height: 100%;
+}
