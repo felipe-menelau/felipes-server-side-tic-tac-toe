@@ -1,16 +1,12 @@
 class MatchesController < ApplicationController
   before_action :refresh_cat_seed, only: [:index]
+  before_action :set_match, only: [:show, :move]
 
   def index
     @matches = Match.all
   end
 
   def show
-    @match ||= Match.find(params[:id])
-    @match ||= Match.find(params[:match_id])
-    respond_to do |format|
-      format.html
-    end
   end
 
   def random
@@ -19,8 +15,14 @@ class MatchesController < ApplicationController
   end
 
   def create
-    @match = Match.create(current_player: "A", game_matrix: [["", "", ""], ["", "", ""], ["", "", ""]], winner: nil)
-    redirect_to @match
+    @match = Match.new(current_player: "A", game_matrix: [["", "", ""], ["", "", ""], ["", "", ""]], winner: nil)
+
+    if @match.save
+      redirect_to @match
+    else
+      Rails.logger.error @match.errors.full_messages
+      render :index
+    end
   end
 
   def move
@@ -53,5 +55,13 @@ class MatchesController < ApplicationController
 
   def refresh_cat_seed
     @cat_seed = rand(1..6)
+  end
+
+  def set_match
+    @match = Match.find_by(id: match_params[:id]) || Match.find_by(id: match_params[:match_id])
+  end
+
+  def match_params
+    params.permit(:id, :match_id)
   end
 end
