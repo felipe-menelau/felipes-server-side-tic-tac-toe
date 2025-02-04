@@ -1,10 +1,13 @@
 development:
-  adapter: async
+  adapter: redis
+  url: redis://localhost:6379/1
 
 test:
   adapter: test
 
 production:
   adapter: redis
-  url: <%= ENV.fetch("REDIS_URL") { "redis://localhost:6379/1" } %>
+  host: fly-felipes-server-side-tic-tac-toe-redis.upstash.io
+  port: 6379
+  password: 6c9961bfe0bf400281c202a8a6966fc1
   channel_prefix: felipes_server_side_tic_tac_toe_production

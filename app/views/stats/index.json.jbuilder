@@ -1,0 +1,7 @@
+json.player_a_wins @stats["player_a_wins"]
+json.player_b_wins @stats["player_b_wins"]
+json.ties @stats["ties"]
+json.total_games_played @stats["total_games_played"]
+json.player_a_win_rate @stats["player_a_win_rate"]
+json.player_b_win_rate @stats["player_b_win_rate"]
+json.total_games @stats["total_games"]

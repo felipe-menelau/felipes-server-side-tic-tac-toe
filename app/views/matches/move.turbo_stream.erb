@@ -1,0 +1,12 @@
+<div class="game-box">
+    <div class="mdl-grid">
+        <div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">6 (8 tablet)</div>
+            <%= turbo_stream.replace dom_id(@match) do %>
+                <div id="<%= dom_id(@match) %>">
+                    <%= turbo_stream_from :match_update %>
+                    <%= render @match %>
+                </div>
+            <% end %>
+        </div>
+    </div>
+</div>

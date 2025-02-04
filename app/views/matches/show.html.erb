@@ -1,0 +1,22 @@
+<div id="outer">
+    <%= turbo_stream_from :match_update %>
+    <div id="<%= dom_id(@match) %>">
+        <%= render @match %>
+    </div>
+
+    <div class="newgame">
+        <div class="newgame_container">
+            <form action="/matches" method="post">
+                <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+                <input class="mdl-button mdl-js-button mdl-button--raised" type="submit" value="New Game">
+            </form>
+        </div>
+        <div class="sharelink_container">
+            <% if @match.winner == nil %>
+                <h6>Send this link to your friend to play async multiplayer: <%= request. original_url %></h6>
+            <% else %>
+                <h6> Could you have won this...? </h6>
+            <% end %>
+        </div>
+    </div>
+</div>
